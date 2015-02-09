@@ -1,0 +1,17 @@
+McAfee Debug & Diag (McD&D) Skeleton
+
+Detect OS (version)
+Detect OS (x86 or x86_64)
+Detect Installed McAfee Products
+Collect Logs:
+	- C:\ProgramData\McAfee\Agent
+	- C:\ProgramData\McAfee\Common Framework
+	- C:\ProgramData\McAfee\DesktopProtection
+	- C:\ProgramData\McAfee\IntrusionPrevention
+	
+
+
+Future plans:
+Log tailing
+MER processing
+Basic troubleshooting
