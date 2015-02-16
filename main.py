@@ -41,7 +41,7 @@ def system_online(started_by_function):
     global system_pingable
 
     print("Loaded system_online function!")
-    hostname = str(raw_input("Hostname/IP: "))  # TODO: Implement multiple hostnames/IPs & .txt lists of hostnames/IPs
+    hostname = str(input("Hostname/IP: "))  # TODO: Implement multiple hostnames/IPs & .txt lists of hostnames/IPs
     output = subprocess.Popen(["ping.exe", hostname], stdout=subprocess.PIPE).communicate()[0]
     print(output)
     if 'unreachable' in output:
@@ -96,7 +96,7 @@ def os_version_detection(started_by_function):
     else:
         os_version = "Unknown"
         print("Detected OS: Unknown!")
-        print sys_info_raw
+        print(sys_info_raw)
 
     # Determine if OS is x86 from x86_64 architecture.
     print("Detecting architecture...")
@@ -250,7 +250,7 @@ def installed_product_detection():
         else:
             print(installed_products)
 
-        repeat_prompt = raw_input("\nWould you like to run this again [y/n]: ")
+        repeat_prompt = input("\nWould you like to run this again [y/n]: ")
         loop = True
         while loop is True:
             if repeat_prompt == 'y' or repeat_prompt == 'Y':
@@ -342,7 +342,7 @@ def remote_shell():
     system_pingable = False
     system_online(True)
     if system_pingable is False:
-        prompt = raw_input("This system does not appear to be pingable. Continue [y/n]:")
+        prompt = input("This system does not appear to be pingable. Continue [y/n]:")
         loop = True
         while loop is True:
             if prompt == 'y' or prompt == 'Y':
@@ -354,7 +354,7 @@ def remote_shell():
             else:
                 loop = True
                 print("Invalid input. Please try again.")
-    username = raw_input("Input username [DOMAIN\username]: ")
+    username = input("Input username [DOMAIN\\username]: ")
     password = getpass.getpass("Input password: ")
     try:
         print("Connecting to {0} with PSExec...").format(hostname)
@@ -367,7 +367,7 @@ def remote_shell():
 
 
 def exit_prompt():
-    return_menu = raw_input("\nWould you like to return to the menu [y/n]: ")
+    return_menu = input("\nWould you like to return to the menu [y/n]: ")
     loop = True
     while loop is True:
         if return_menu == 'y' or return_menu == 'Y':
@@ -383,7 +383,7 @@ def exit_prompt():
 
 
 def main_menu():
-    print """
+    print("""
     McAfee Debug & Diag Tool (McDD)
     v0.1a
 
@@ -391,7 +391,7 @@ def main_menu():
 
     -- Remote Tools --
     1. System Online Check
-    2. # Remote Interactive Shell (incomplete)
+    2. Remote Interactive Shell
     3. # Check Running McAfee Processes (incomplete)
     4. # Remote Software Uninstall (incomplete)
     5. #
@@ -406,7 +406,7 @@ def main_menu():
     12. #
     -----------------
     99. Exit
-    """
+    """)
 
     loop = True
     while loop is True:
